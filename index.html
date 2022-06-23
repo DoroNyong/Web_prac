@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>circle_move_rotate</title>
+    <title>_2</title>
     <style>
         button {
             font-size: 18pt;
@@ -59,27 +59,27 @@
         }
 
         button:nth-child(4):active ~ .rotate {
-            transform: rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
         }
 
         button:nth-child(4):hover ~ .rotate > span:nth-child(1) {
             background-color: rgb(182, 38, 38);
         }
 
-        button:nth-child(4):hover ~ .rotate > span:nth-child(2) {
+        button:nth-child(4):hover ~ .rotate > span:nth-child(3) {
             background-color: rgb(40, 167, 35);
         }
 
         .rotate {
-            width: 100px;
+            padding: 80px 50px;
             display: inline-block;
-            top: 30%;
+            top: 50%;
             left: 50%;
             position: absolute;
 
             transition-duration: 5s;
             transition-timing-function: linear;
-            transform: rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg);
             transition-property: transform;
         }
 
@@ -94,7 +94,7 @@
             margin-bottom: 100px;
         }
 
-        .rotate > span:nth-child(2) {
+        .rotate > span:nth-child(3) {
             background-color: rgb(60, 250, 53);
         }
     </style>
@@ -109,6 +109,7 @@
     </div>
     <div class="rotate">
         <span></span>
+        <div></div>
         <span></span>
     </div>
 </body>
