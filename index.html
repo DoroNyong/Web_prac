@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>circle_move</title>
+    <title>circle_move_rotate</title>
     <style>
         button {
             font-size: 18pt;
@@ -19,7 +19,7 @@
             cursor: pointer;
         }
 
-        button:hover ~ div > span {
+        button:nth-child(-n+3):hover ~ .move > span {
             background-color: rgb(40, 113, 190);
         }
 
@@ -27,23 +27,23 @@
             background-color: rgb(20, 20, 20);
         }
 
-        button:nth-child(1):active ~ div > span {
+        button:nth-child(1):active ~ .move > span {
             left: 99%;
             transform: translate(-100px, 55px);
         }
 
-        button:nth-child(2):active ~ div > span {
+        button:nth-child(2):active ~ .move > span {
             top: 99%;
             transform: translate(0, -100px);
         }
 
-        button:nth-child(3):active ~ div > span {
+        button:nth-child(3):active ~ .move > span {
             left: 99%;
             top: 99%;
             transform: translate(-100px, -100px);
         }
 
-        span {
+        .move > span {
             left: 1%;
             top: 1%;
             transform: translate(0, 55px);
@@ -55,6 +55,47 @@
             transition-duration: 5s;
             transition-timing-function: linear;
             transition-property: transform, top, left;
+            z-index: 1;
+        }
+
+        button:nth-child(4):active ~ .rotate {
+            transform: rotate(360deg);
+        }
+
+        button:nth-child(4):hover ~ .rotate > span:nth-child(1) {
+            background-color: rgb(182, 38, 38);
+        }
+
+        button:nth-child(4):hover ~ .rotate > span:nth-child(2) {
+            background-color: rgb(40, 167, 35);
+        }
+
+        .rotate {
+            width: 100px;
+            display: inline-block;
+            top: 30%;
+            left: 50%;
+            position: absolute;
+
+            transition-duration: 5s;
+            transition-timing-function: linear;
+            transform: rotate(0deg);
+            transition-property: transform;
+        }
+
+        .rotate > span {
+            padding: 50px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .rotate > span:nth-child(1) {
+            background-color: rgb(250, 53, 53);
+            margin-bottom: 100px;
+        }
+
+        .rotate > span:nth-child(2) {
+            background-color: rgb(60, 250, 53);
         }
     </style>
 </head>
@@ -62,7 +103,12 @@
     <button>가로로 움직이기</button>
     <button>세로로 움직이기</button>
     <button>두 방향 움직이기</button>
-    <div>
+    <button>원 돌리기(최대 한 바퀴)</button>
+    <div class="move">
+        <span></span>
+    </div>
+    <div class="rotate">
+        <span></span>
         <span></span>
     </div>
 </body>
